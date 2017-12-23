@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>前端模块化（AMD和CMD） | Wiolem</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">前端模块化（AMD和CMD）</h1><a id="logo" href="/.">Wiolem</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">前端模块化（AMD和CMD）</h1><div class="post-meta">Dec 20, 2017<span> | </span><span class="category"><a href="/categories/前端/">前端</a></span></div><a data-disqus-identifier="2017/12/20/前端模块化（AMD CMD）/" href="/2017/12/20/前端模块化（AMD CMD）/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><h2 id="前端模块化"><a href="#前端模块化" class="headerlink" title="前端模块化"></a>前端模块化</h2><p>前端模块规范有三种：CommonJs,AMD和CMD。</p>
+<p>CommonJs用在服务器端，AMD和CMD用在浏览器环境 </p>
+<p>入口文件 : 操作页面元素 , 并调用模块中的某些功能  </p>
+<p>模块化开发 :   </p>
+<p>三层   </p>
+<p>一层：界面表现   </p>
+<p>二层（中间层）：入口 , 操作页面元素 , 调用（底层）模块中的功能 </p>
+<p>三层（底层）：具体功能实现 （不会直接操作页面元素）</p>
+<h2 id="requirejs（AMD）"><a href="#requirejs（AMD）" class="headerlink" title="requirejs（AMD）"></a>requirejs（AMD）</h2><p>AMD ：requirejs所倡导的就是AMD开发方式<br>     是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。</p>
+<p>requirejs 采用异步方式加载模块，模块的加载不影响它后面语句的运行。</p>
+<p>所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。     </p>
+<p>模块化开发 ，可以一次性引入多个模块文件 ，同时也没有引入的顺序。</p>
+<p>require.js 加载的模块，采用AMD规范。也就是说，模块必须按照 AMD 的规定来写。      </p>
+<p>具体来说，就是模块必须采用特定的 define() 函数来定义。如果一个模块不依赖其他模块，那么可以直接定义在 define() 函数之中。</p>
+<p>AMD推崇的是依赖前置</p>
+<p>AMD:提前执行（异步加载：依赖先执行）+ 延迟执行</p>
+<h2 id="require-js-使用"><a href="#require-js-使用" class="headerlink" title="require.js 使用"></a>require.js 使用</h2><p>下载 <a href="http://requirejs.org/docs/download.html#requirejs" target="_blank" rel="external">require.js</a> </p>
+<ol>
+<li><p>在页面中引入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;require.js&quot; data-main=&quot;main&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>data-main的值是一个入口文件 , main 实际上就是 main.js</p>
+</blockquote>
+</li>
+<li><p>入口函数实现：</p>
+<p>通过cinfig方法为模块指定别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">requirejs.config(&#123;//为引入的模块指定别名</div><div class="line">    paths:&#123;</div><div class="line">        jquery:&quot;jquery-1.11.1.min&quot;,//为jquery库文件指定一个别名，方便后期调</div><div class="line">        vd : &quot;validate&quot;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>引入时：需要注意，引入顺序，频繁引入<br>jquery.js<br>ajax.js<br>如果后续 .js 文件用到之前的 .js ,就在其后面引入</p>
+</blockquote>
+</li>
+<li><p>通过 requirejs() 方法将写好的模块引入,并根据他们编写子代码</p>
+<p>有两个参数<br>第一个参数是一个==数组==：引入的每个模块名称，<br>第二个参数是一个==回调函数==，函数中就是页面要实现某个功能的子代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">requirejs([&quot;jquery&quot;,&quot;vd&quot;],function($,vd)&#123;</div><div class="line">     //操作页面元素 , 并调用功能</div><div class="line"> 	$(&quot;body&quot;).css(&quot;background&quot;,&quot;pink&quot;);</div><div class="line"> 	//调用 outer.js 方法</div><div class="line"> 	console.log(vd.equal(1,2);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>define() 用它编写模块（功能），在相应的地方进行引入   </p>
+<p>有两个参数<br>第一个参数是该模块要依赖的其它模块，是一个==数组==  （可以省略）<br>第二个参数是一个==回调函数==  函数中实现该模块的功能</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define(function()&#123;</div><div class="line">	return &#123;</div><div class="line">		equal : function(a,b)&#123;</div><div class="line">   return a &gt; b ? a : b;</div><div class="line">  &#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="关于-requirejs"><a href="#关于-requirejs" class="headerlink" title="关于 requirejs"></a>关于 requirejs</h2><ol>
+<li>整个项目中一般不会出现全局变量（防止全局变量的污染）</li>
+<li>整个项目中所有模块的项目加载顺序不固定（顺序任意）</li>
+<li>整个项目中模块之间的执行是异步的</li>
+<li>整个项目实现代码均是面向对象的书写方式，便于模块的管理和维护</li>
+</ol>
+<h1 id="Seajs（CMD）"><a href="#Seajs（CMD）" class="headerlink" title="Seajs（CMD）"></a>Seajs（CMD）</h1><h2 id="Seajs-CMD"><a href="#Seajs-CMD" class="headerlink" title="Seajs(CMD)"></a>Seajs(CMD)</h2><p>CMD： Seajs 所倡导的都是CMD模块定义规范。 所有的JavaScript都遵循这个规范。</p>
+<p>CMD（Common Module Definition）   该规范明确了模块的基本书写格式和基本交互规则。</p>
+<p>CMD推崇的是依赖就近</p>
+<p>CMD:延迟执行（运行到需加载，根据顺序执行）</p>
+<h2 id="Seajs-使用"><a href="#Seajs-使用" class="headerlink" title="Seajs 使用"></a>Seajs 使用</h2><p>下载 <a href="https://seajs.github.io/seajs/docs/#downloads" target="_blank" rel="external">Seajs</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;sea.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	seajs.use([&quot;main&quot;]);//引入入口文件</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>main.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">define(function(require)&#123;</div><div class="line">	//引入外部模块 , 并起别名</div><div class="line">	var $ = require(&quot;jquery-3.2.1.min&quot;);</div><div class="line">	var out = require(&quot;outer&quot;);</div><div class="line">	//操作页面元素 , 并调用功能</div><div class="line">	$(&quot;body&quot;).css(&quot;background&quot;,&quot;pink&quot;);</div><div class="line">	//调用 outer.js 方法</div><div class="line">	console.log(out.equal(1,2);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>jquery.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(function()&#123;</div><div class="line">    //jquery 完整代码包裹在 define 中</div><div class="line">    return $.noConflict();</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>outer.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">define(function(require,exports,module)&#123;</div><div class="line">	//exports , module 作用 ：负责模块的暴露</div><div class="line">	//具体功能实现</div><div class="line">	var obj = &#123;</div><div class="line">		equal : function(a,b)&#123;</div><div class="line">			return a &gt; b ? a : b;</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line">	module.exports = obj;//模块暴露  </div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</div><div class="tags"><a href="/tags/模块化/">模块化</a></div><div class="post-nav"><a href="/2017/12/15/Gulp 前端自动化工具/" class="next">Gulp 前端自动化工具</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'wiolem.disqus.com';
+var disqus_identifier = '2017/12/20/前端模块化（AMD CMD）/';
+var disqus_title = '前端模块化（AMD和CMD）';
+var disqus_url = 'http://yoursite.com/2017/12/20/前端模块化（AMD CMD）/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//wiolem.disqus.com.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gulp/">Gulp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SASS/">SASS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Wiolem/">Wiolem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/面向对象/" style="font-size: 15px;">面向对象</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/后端/" style="font-size: 15px;">后端</a> <a href="/tags/Dagger2/" style="font-size: 15px;">Dagger2</a> <a href="/tags/第三方开源库/" style="font-size: 15px;">第三方开源库</a> <a href="/tags/依赖注入/" style="font-size: 15px;">依赖注入</a> <a href="/tags/BFC/" style="font-size: 15px;">BFC</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/Retrofit2/" style="font-size: 15px;">Retrofit2</a> <a href="/tags/网络请求/" style="font-size: 15px;">网络请求</a> <a href="/tags/模块化/" style="font-size: 15px;">模块化</a> <a href="/tags/元素居中/" style="font-size: 15px;">元素居中</a> <a href="/tags/云音乐/" style="font-size: 15px;">云音乐</a> <a href="/tags/Network/" style="font-size: 15px;">Network</a> <a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/兼容/" style="font-size: 15px;">兼容</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/BUG/" style="font-size: 15px;">BUG</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/前端模块化（AMD CMD）/">前端模块化（AMD和CMD）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/15/Gulp 前端自动化工具/">Gulp 前端自动化工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/15/Sass/">SASS-CSS扩展语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/jQuery-80000/">jQuery-80000</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/ECMAScript-面向对象/">ECMAScript-面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/20/相识-Ajax/">相识-Ajax</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/20/PHP基础/">世界上最好的语言-PHP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/BFC/">BFC</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/兼容/">兼容篇:常见CSS BUG</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/10/居中/">居中方式总结</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://material.uplabs.com/" title="Material.Uplabs" target="_blank">Material.Uplabs</a><ul></ul><a href="https://dribbble.com/" title="Dribbble" target="_blank">Dribbble</a><ul></ul><a href="https://juejin.im/timeline/" title="JueJin" target="_blank">JueJin</a><ul></ul><a href="http://wiki.jikexueyuan.com/" title="Wiki.JiKeXueYuan" target="_blank">Wiki.JiKeXueYuan</a></div><div class="widget"><div class="widget-title"><i class="fa fa-external-music"> 网易云音乐</i></div></div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=489998494&auto=0&height=66"></iframe></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">Wiolem.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
