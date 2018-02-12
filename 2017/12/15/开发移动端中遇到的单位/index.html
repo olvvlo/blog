@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>移动端中的遇到的烦人单位 | Wiolem</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">移动端中的遇到的烦人单位</h1><a id="logo" href="/.">Wiolem</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">移动端中的遇到的烦人单位</h1><div class="post-meta">Dec 15, 2017<span> | </span><span class="category"><a href="/categories/移动端/">移动端</a></span></div><a data-disqus-identifier="2017/12/15/开发移动端中遇到的单位/" href="/2017/12/15/开发移动端中遇到的单位/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p>移动端设计总会遇到各种各样的单位，傻傻分不清楚，em、rem、vh、vw、dpi、ppi、dp、sp、px、pt、in，不慌，我们一一来看</p>
+<h2 id="屏幕尺寸-in"><a href="#屏幕尺寸-in" class="headerlink" title="屏幕尺寸 (in)"></a>屏幕尺寸 (in)</h2><p>这个单位是用户可以直观感受到的物理大小，就是我们常说的手机屏幕大小，指屏幕的对角线的长度，单位是英寸，1英寸=2.54厘米。    </p>
+<p>常见的屏幕尺寸有2.4、2.8、3.5、3.7、4.2、5.0、5.5、6.0等。</p>
+<p>例如iPhoneX主屏尺寸为 5.8 英寸</p>
+<h2 id="分辨率-px"><a href="#分辨率-px" class="headerlink" title="分辨率 (px)"></a>分辨率 (px)</h2><p>手机规格上必要的数据</p>
+<ul>
+<li>横纵方向上的像素点数</li>
+<li>单位px,1px = 1个像素点</li>
+<li>纵向像素 * 横向像素<blockquote>
+<p>eg : iPhoneX  2436 * 1125 像素</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="像素密度-dpi-ppi"><a href="#像素密度-dpi-ppi" class="headerlink" title="像素密度 (dpi/ppi)"></a>像素密度 (dpi/ppi)</h2><p>ppi(Pixels Per Inch) : 屏幕上每英寸可以显示的像素点的数量，即屏幕像素密度。</p>
+<p>dpi(Dots Per Inch) : 最初用于衡量打印物上每英寸的点数密度，就是打印机可以在一英寸内打多少个点.</p>
+<p>当dpi的概念用在计算机屏幕上时，就称之为ppi.</p>
+<p>ppi和dpi是同一个概念，Android比较喜欢使用dpi，iOS比较喜欢使用ppi.</p>
+<p>屏幕像素密度与屏幕尺寸和屏幕分辨率有关，在单一变化条件下，屏幕尺寸越小、分辨率越高，像素密度越大，反之越小</p>
+<p>计算公式：dpi/ppi = √(长度像素数² + 宽度像素数²) / 屏幕对角线英寸数</p>
+<p>eg : iPhoneX 5.8英寸 2436 * 1125<br>dpi/ppi = 463 = √ (2436² + 1125²) / 5.8</p>
+<h3 id="mdpi-hdpi-xdpi-xxdpi-xxxdpi"><a href="#mdpi-hdpi-xdpi-xxdpi-xxxdpi" class="headerlink" title="mdpi,hdpi,xdpi,xxdpi,xxxdpi"></a>mdpi,hdpi,xdpi,xxdpi,xxxdpi</h3><p>Google官方指定按照下列标准区分不同设备的dpi</p>
+<table>
+<thead>
+<tr>
+<th>\</th>
+<th>dpi</th>
+<th>X</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mdpi</td>
+<td>120dpi~160dpi</td>
+<td>1*    </td>
+</tr>
+<tr>
+<td>hdpi</td>
+<td>160dpi~240dpi</td>
+<td>1.5*    </td>
+</tr>
+<tr>
+<td>xhdpi</td>
+<td>240dpi~320dpi</td>
+<td>2*    </td>
+</tr>
+<tr>
+<td>xxhdpi</td>
+<td>320dpi~480dpi</td>
+<td>3*   </td>
+</tr>
+<tr>
+<td>xxxhdpi</td>
+<td>480dpi~640dpi</td>
+<td>4*    </td>
+</tr>
+</tbody>
+</table>
+<p>苹果的区分则更为简单：</p>
+<table>
+<thead>
+<tr>
+<th>\</th>
+<th>ppi</th>
+<th>X</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>非高清屏</td>
+<td>163ppi</td>
+<td>1*</td>
+</tr>
+<tr>
+<td>高清屏</td>
+<td>326ppi</td>
+<td>2*</td>
+</tr>
+<tr>
+<td>超高清屏</td>
+<td>401ppi</td>
+<td>3*</td>
+</tr>
+</tbody>
+</table>
+<h2 id="px-dp-dip-sp-pt"><a href="#px-dp-dip-sp-pt" class="headerlink" title="px dp,dip sp pt"></a>px dp,dip sp pt</h2><h3 id="px"><a href="#px" class="headerlink" title="px"></a>px</h3><p>像素，使网页设计中使用最多的长度单位。将显示器分成非常细小的方格，每个方格就是一个像素。</p>
+<p>api的单位 (获取屏幕的宽高返回的单位) ,构成图像的最小单位</p>
+<blockquote>
+<p>网页重构中使用的px和屏幕分辨率的px不一定是一样的大小</p>
+</blockquote>
+<h3 id="dp-dip-Density-Independent-Pixels"><a href="#dp-dip-Density-Independent-Pixels" class="headerlink" title="dp,dip (Density Independent Pixels)"></a>dp,dip (Density Independent Pixels)</h3><p>dp和dip 密度独立像素，可以想象成是一个物理尺寸，使同样的设置在不同手机上显示的效果看起来是一样的。</p>
+<p>在Android中，规定以160dpi为基准，1dp=1px。如果密度是320dpi，则1dp=2px，以此类推。</p>
+<blockquote>
+<p>1dp <em> 160dpi / 160 = 1px<br>1dp </em> 320dpi / 160 = 2px</p>
+</blockquote>
+<h3 id="sp-Scale-Independent-Pixels"><a href="#sp-Scale-Independent-Pixels" class="headerlink" title="sp (Scale Independent Pixels)"></a>sp (Scale Independent Pixels)</h3><p>原生移动开发的的人员知道谷歌建议字体单位均为 sp    </p>
+<p>专门用来定义文字大小的，受用户 Android 设备字体设置的影响</p>
+<p>sp 与 px 的换算公式：sp*ppi/160 = px</p>
+<p>文字大小首选项进行放缩 12sp 以上14sp 16sp 不要用奇数 小数</p>
+<h3 id="pt"><a href="#pt" class="headerlink" title="pt"></a>pt</h3><p>pt 是苹果建议的字体单位</p>
+<h3 id="sp-px-pt-常用换算方式"><a href="#sp-px-pt-常用换算方式" class="headerlink" title="sp px pt 常用换算方式"></a>sp px pt 常用换算方式</h3><table>
+<thead>
+<tr>
+<th>sp</th>
+<th>px</th>
+<th>pt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12sp</td>
+<td>24px</td>
+<td>24pt</td>
+</tr>
+<tr>
+<td>14sp</td>
+<td>28px</td>
+<td>28pt</td>
+</tr>
+<tr>
+<td>18sp</td>
+<td>36px</td>
+<td>26pt</td>
+</tr>
+<tr>
+<td>22sp</td>
+<td>44px</td>
+<td>44pt</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://zhuanlan.zhihu.com/zhezhexiong/19565895" target="_blank" rel="external">dp、sp、px傻傻分不清楚[完整]</a></p>
+<h2 id="em-rem-vw-vh"><a href="#em-rem-vw-vh" class="headerlink" title="em rem vw vh"></a>em rem vw vh</h2><h3 id="em"><a href="#em" class="headerlink" title="em"></a>em</h3><p>当使用em单位时，像素值将是em值乘以使用em单位的元素的字体大小</p>
+<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h3><p>当使用 rem 单位，转化为像素大小取决于页根元素的字体大小，即 html 元素的字体大小。 根元素字体大小乘以你 rem 值</p>
+<h3 id="vw-vh"><a href="#vw-vh" class="headerlink" title="vw vh"></a>vw vh</h3><p>相对于视窗的宽高度：视窗宽高度是100vw/100vh</p>
+<blockquote>
+<p>“视区”所指为浏览器内部的可视区域大小，即window.innerWidth/window.innerHeight大小，不包含任务栏标题栏以及底部工具栏的浏览器区域大小</p>
+</blockquote>
+<p><a href="http://www.zhangxinxu.com/wordpress/2012/09/new-viewport-relative-units-vw-vh-vm-vmin/" target="_blank" rel="external">视区相关单位vw, vh..简介以及可实际应用场景</a></p>
+</div><div class="tags"><a href="/tags/前端/">前端</a></div><div class="post-nav"><a href="/2017/12/15/Gulp 前端自动化工具/" class="pre">Gulp 前端自动化工具</a><a href="/2017/12/10/jQuery-80000/" class="next">jQuery-80000</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'wiolem.disqus.com';
+var disqus_identifier = '2017/12/15/开发移动端中遇到的单位/';
+var disqus_title = '移动端中的遇到的烦人单位';
+var disqus_url = 'http://yoursite.com/2017/12/15/开发移动端中遇到的单位/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//wiolem.disqus.com.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gulp/">Gulp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SASS/">SASS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Wiolem/">Wiolem</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/移动端/">移动端</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/BFC/" style="font-size: 15px;">BFC</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/后端/" style="font-size: 15px;">后端</a> <a href="/tags/Dagger2/" style="font-size: 15px;">Dagger2</a> <a href="/tags/第三方开源库/" style="font-size: 15px;">第三方开源库</a> <a href="/tags/依赖注入/" style="font-size: 15px;">依赖注入</a> <a href="/tags/面向对象/" style="font-size: 15px;">面向对象</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/Retrofit2/" style="font-size: 15px;">Retrofit2</a> <a href="/tags/网络请求/" style="font-size: 15px;">网络请求</a> <a href="/tags/兼容/" style="font-size: 15px;">兼容</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/BUG/" style="font-size: 15px;">BUG</a> <a href="/tags/模块化/" style="font-size: 15px;">模块化</a> <a href="/tags/元素居中/" style="font-size: 15px;">元素居中</a> <a href="/tags/云音乐/" style="font-size: 15px;">云音乐</a> <a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/Network/" style="font-size: 15px;">Network</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/前端模块化（AMD CMD）/">前端模块化（AMD和CMD）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/Git 花式 commit/">Git 花式 commit - enjoy 😜</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/15/Sass/">SASS-CSS扩展语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/15/Gulp 前端自动化工具/">Gulp 前端自动化工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/15/开发移动端中遇到的单位/">移动端中的遇到的烦人单位</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/jQuery-80000/">jQuery-80000</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/ECMAScript-面向对象/">ECMAScript-面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/20/相识-Ajax/">相识-Ajax</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/20/PHP基础/">世界上最好的语言-PHP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/BFC/">BFC</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://material.uplabs.com/" title="Material.Uplabs" target="_blank">Material.Uplabs</a><ul></ul><a href="https://dribbble.com/" title="Dribbble" target="_blank">Dribbble</a><ul></ul><a href="https://juejin.im/timeline/" title="JueJin" target="_blank">JueJin</a><ul></ul><a href="http://wiki.jikexueyuan.com/" title="Wiki.JiKeXueYuan" target="_blank">Wiki.JiKeXueYuan</a></div><div class="widget"><div class="widget-title"><i class="fa fa-external-music"> 网易云音乐</i></div></div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=489998494&auto=0&height=66"></iframe></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">Wiolem.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
