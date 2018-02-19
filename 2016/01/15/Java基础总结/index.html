@@ -1,0 +1,503 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Java基础知识 | Wiolem</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Java基础知识</h1><a id="logo" href="/.">Wiolem</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Java基础知识</h1><div class="post-meta">Jan 15, 2016<span> | </span><span class="category"><a href="/categories/Java/">Java</a></span></div><a data-disqus-identifier="2016/01/15/Java基础总结/" href="/2016/01/15/Java基础总结/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><h2 id="Java数据类型"><a href="#Java数据类型" class="headerlink" title="Java数据类型"></a>Java数据类型</h2><ul>
+<li>基本数据类型<ul>
+<li>数值型<ul>
+<li>整数类型(byte,short,int,long)</li>
+<li>浮点类型(float,double)</li>
+</ul>
+</li>
+<li>字符型(char)</li>
+<li>布尔型(boolean)</li>
+</ul>
+</li>
+<li>引用数据类型<ul>
+<li>类(class)</li>
+<li>接口(interface)</li>
+<li>数组　</li>
+</ul>
+</li>
+</ul>
+<h2 id="switch参数可以是哪些"><a href="#switch参数可以是哪些" class="headerlink" title="switch参数可以是哪些"></a>switch参数可以是哪些</h2><ul>
+<li>byte</li>
+<li>short</li>
+<li>int</li>
+<li>char</li>
+<li>enum</li>
+<li>String</li>
+</ul>
+<h2 id="int和Integer的区别"><a href="#int和Integer的区别" class="headerlink" title="int和Integer的区别"></a>int和Integer的区别</h2><ul>
+<li>Integer是int提供的封装类，而int是Java的基本数据类型；</li>
+<li>Integer默认值是null，而int默认值是0；</li>
+<li>声明为Integer的变量需要实例化，而声明为int的变量不需要实例化；</li>
+<li>Integer是对象，用一个引用指向这个对象，而int是基本类型，直接存储数值。</li>
+</ul>
+<h2 id="什么是值传递和引用传递？"><a href="#什么是值传递和引用传递？" class="headerlink" title="什么是值传递和引用传递？"></a>什么是值传递和引用传递？</h2><ul>
+<li>值传递是对基本型变量而言的,传递的是该变量的一个副本,改变副本不影响原变量. </li>
+<li>引用传递一般是对于对象型变量而言的,传递的是该对象地址的一个副本, 并不是原对象本身 。 </li>
+<li>一般认为,java内的传递都是值传递. java中实例对象的传递是引用传递</li>
+</ul>
+<h2 id="“static”关键字是什么意思？Java中是否可以覆盖-override-一个private或者是static的方法？"><a href="#“static”关键字是什么意思？Java中是否可以覆盖-override-一个private或者是static的方法？" class="headerlink" title="“static”关键字是什么意思？Java中是否可以覆盖(override)一个private或者是static的方法？"></a>“static”关键字是什么意思？Java中是否可以覆盖(override)一个private或者是static的方法？</h2><ul>
+<li>“static”关键字表明一个成员变量或者是成员方法可以在没有所属的类的实例变量的情况下被访问。 </li>
+<li>Java中static方法不能被覆盖，因为方法覆盖是基于运行时动态绑定的，而static方法是编译时静态绑定的。static方法跟类的任何实例都不相关，所以概念上不适用。<br>java中也不可以覆盖private的方法，因为private修饰的变量和方法只能在当前类中使用，如果是其他的类继承当前类是不能访问到private变量或方法的，当然也不能覆盖。</li>
+</ul>
+<h2 id="是否可以在static环境中访问非static变量？"><a href="#是否可以在static环境中访问非static变量？" class="headerlink" title="是否可以在static环境中访问非static变量？"></a>是否可以在static环境中访问非static变量？</h2><ul>
+<li>static变量在Java中是属于类的，它在所有的实例中的值是一样的。当类被Java虚拟机载入的时候，会对static变量进行初始化。如果你的代码尝试不用实例来访问非static的变量，编译器会报错，因为这些变量还没有被创建出来，还没有跟任何实例关联上。</li>
+</ul>
+<h2 id="String和StringBuffer、StringBuilder"><a href="#String和StringBuffer、StringBuilder" class="headerlink" title="String和StringBuffer、StringBuilder"></a>String和StringBuffer、StringBuilder</h2><ul>
+<li>可变性<ul>
+<li>String类是用字符数组保存字符串，即private final char value[]，所以String对象不可变</li>
+<li>StringBuffer类与StringBuilder类都是继承AbstractStringBuilder类，AbstractStringBuilder是用字符数组保存字符串，即char value[]，所以StringBuffer与StringBuilder对象是可变的</li>
+</ul>
+</li>
+<li>线程安全性<ul>
+<li>String类对象不可变，所以理解为常量，线程安全</li>
+<li>StringBuffer类对方法加了同步锁，线程安全</li>
+<li>StringBuilder类对方法未加同步锁，线程不安全</li>
+</ul>
+</li>
+<li>性能<ul>
+<li>String类进行改变的时候，都会产生新的String对象，然后将指针指向新的String对象</li>
+<li>StringBuffer进行改变的时候，都会复用自身对象，性能比String高</li>
+</ul>
+</li>
+</ul>
+<h2 id="Synchronized如何使用"><a href="#Synchronized如何使用" class="headerlink" title="Synchronized如何使用"></a>Synchronized如何使用</h2><ul>
+<li>Synchronized是Java的关键字，是一种同步锁，它可以修饰的对象有以下几种</li>
+<li>修饰代码块：该代码块被称为同步代码块，作用的主要对象是调用这个代码块的对象</li>
+<li>修饰方法：该方法称为同步方法，作用的主要对象是调用这个方法的对象</li>
+<li>修饰静态方法：作用范围为整个静态方法，作用的主要对象为这个类的所有对象</li>
+<li>修饰类：作用范围为Synchronized后面括号括起来的部分，作用的主要对象为这个类的所有对象</li>
+</ul>
+<h2 id="Synchronized和Lock的区别"><a href="#Synchronized和Lock的区别" class="headerlink" title="Synchronized和Lock的区别"></a>Synchronized和Lock的区别</h2><ul>
+<li>相同点：Lock能完成Synchronized所实现的所有功能 </li>
+<li>不同点：<ul>
+<li>Synchronized是基于JVM的同步锁，JVM会帮我们自动释放锁。Lock是通过代码实现的，Lock要求我们手工释放，必须在finally语句中释放。</li>
+<li>Lock锁的范围有局限性、块范围。Synchronized可以锁块、对象、类</li>
+<li>Lock功能比Synchronized强大，可以通过tryLock方法在非阻塞线程的情况下拿到锁</li>
+</ul>
+</li>
+</ul>
+<h2 id="volatile关键字"><a href="#volatile关键字" class="headerlink" title="volatile关键字"></a>volatile关键字</h2><ul>
+<li>用volatile修饰的变量，线程在每次使用变量的时候，都会读取变量修改后的值，可以简单的理解为volatile修饰的变量保存的是变量的地址。volatile变量具有synchronized的可见性特性，但是不具备原子特性。可见性指的是在确保释放锁之前，对共享数据做出的更改，可以在随后获得该锁的另一个线程中是可见的。要使volatile变量提供理想的线程安全，必须同时满足下面两个条件<ul>
+<li>对变量的写操作不依赖于当前值</li>
+<li>该变量没有包含在具有其他变量的不变式中</li>
+</ul>
+</li>
+<li>比如增量操作（x++）看上去类似一个单独操作，实际上它是一个由读取－修改－写入操作序列组成的组合操作，必须以原子方式执行，而volatile不能提供必须的原子特性。实现正确的操作需要使 x 的值在操作期间保持不变，而 volatile 变量无法实现这点</li>
+</ul>
+<h2 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h2><ul>
+<li>对象的序列化：是把对象转换成字节序列的过程 </li>
+<li>对象的反序列化：是把字节序列恢复为对象的过程</li>
+<li>对象序列化的主要用途：<ul>
+<li>可以将字节序列永久的保存在硬盘中，通常放在文件中</li>
+<li>可以在网络上传送字节序列</li>
+<li>两个线程在进行远程通信时，彼此可以发送各种类型。发送方需要把这个Java对象转换为字节序列，接收方则需要把字节序列再恢复为Java对象</li>
+</ul>
+</li>
+</ul>
+<h2 id="自动装箱与拆箱"><a href="#自动装箱与拆箱" class="headerlink" title="自动装箱与拆箱"></a>自动装箱与拆箱</h2><p>  Java采用了自动装箱和拆箱机制，节省了常用数值的内存开销和创建对象的开销，提高了效率</p>
+<ul>
+<li>装箱：将基本数据类型包装成它们的引用类型</li>
+<li>拆箱：将包装类型转换成基本数据类型</li>
+</ul>
+<h2 id="Error和Exception区别"><a href="#Error和Exception区别" class="headerlink" title="Error和Exception区别"></a>Error和Exception区别</h2><p>  Error类和Exception类的父类都是throwable类</p>
+<ul>
+<li>Error：一般指与虚拟机相关的问题，如系统崩溃，虚拟机错误，内存空间不足，方法调用栈溢等。对于这类错误导致的应用程序中断，仅靠程序本身无法恢复和和预防，遇到这样的错误，建议让程序终止</li>
+<li>Exception：表示程序可以处理的异常，可以捕获且可能恢复。遇到这类异常，应该尽可能处理异常，使程序恢复运行，而不应该随意终止异常</li>
+</ul>
+<h2 id="Unchecked-Exception和Checked-Exception区别"><a href="#Unchecked-Exception和Checked-Exception区别" class="headerlink" title="Unchecked Exception和Checked Exception区别"></a>Unchecked Exception和Checked Exception区别</h2><ul>
+<li>Unchecked Exception<ul>
+<li>指的是不可被控制的异常，或称运行时异常，主要体现在程序的瑕疵或逻辑错误，并且在运行时无法恢复</li>
+<li>包括Error与RuntimeException及其子类，如：OutOfMemoryError，IllegalArgumentException， NullPointerException，IllegalStateException，IndexOutOfBoundsException等</li>
+<li>语法上不需要声明抛出异常也可以编译通过</li>
+</ul>
+</li>
+<li>Checked Exception<ul>
+<li>指的是可被控制的异常，或称非运行时异常<br>除了Error和RuntimeException及其子类之外，如：ClassNotFoundException, NamingException, ServletException, SQLException, IOException等</li>
+<li>需要try catch处理或throws声明抛出异常</li>
+</ul>
+</li>
+</ul>
+<h2 id="编译和运行"><a href="#编译和运行" class="headerlink" title="编译和运行"></a>编译和运行</h2><ul>
+<li>编译时和运行时<ul>
+<li>编译时：将Java文件编译成.class文件的过程，不涉及到内存的分配</li>
+<li>运行时：将虚拟机执行.class文件的过程，涉及到内存的分配</li>
+</ul>
+</li>
+<li>编译时类型和运行时类型<ul>
+<li>编译时类型：由声明该变量时使用的类型决定</li>
+<li>运行时类型：由实际赋给该变量的对象决定</li>
+</ul>
+</li>
+<li>编译时和运行时的动态绑定<ul>
+<li>在编译时，调用的是声明类型的成员方法</li>
+<li>在运行时，调用的是实际类型的成员方法</li>
+<li>对于调用引用实例的成员变量，无论是编译还是运行时，均是编译时类型的成员变量</li>
+</ul>
+</li>
+</ul>
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><ul>
+<li>什么是反射<ul>
+<li>在运行状态中，对于任意一个类，都可以获得这个类的所有属性和方法，对于任意一个对象，都能够调用它的任意一个方法和属性</li>
+</ul>
+</li>
+<li>反射使用步骤<ul>
+<li>获取类的字节码（getClass()、forName()、类名.class）</li>
+<li>根据类的方法名或变量名，获取类的方法或变量</li>
+<li>执行类的方法或使用变量，如果不使用，也可以创建该类的实例对象（通过获取构造函数执行newInstance方法）</li>
+</ul>
+</li>
+</ul>
+<h1 id="集合框架"><a href="#集合框架" class="headerlink" title="集合框架"></a>集合框架</h1><h2 id="集合框架简介"><a href="#集合框架简介" class="headerlink" title="集合框架简介"></a>集合框架简介</h2><ul>
+<li>Collection  <ul>
+<li>List：key可重复<ul>
+<li>LinkedList：(底层双向链表) 有序,非同步,允许null</li>
+<li>ArrayList：(底层可变数组) 有序,非同步,容量10,允许null,容量1.5倍增长</li>
+<li>Vector：(底层可变数组) 有序,同步,容量10,允许null,容量2倍增长</li>
+</ul>
+</li>
+<li>Set：key不可重复,若key重复,替换旧value<ul>
+<li>HashSet：(基于HashMap) 无序,非同步</li>
+<li>TreeSet：(排序二叉树)</li>
+<li>LinkedHashSet：(基于LinkedHashMap) 有序,非同步</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Map：key唯一,value可重复;若key重复,替换旧value<ul>
+<li>Hashtable：(底层数组+单链表) 无序,同步,容量11, 不允许null</li>
+<li>HashMap：(底层数组+单链表) 无序,非同步,容量16, 允许null,容量2倍增长<ul>
+<li>LinkedHashMap：(底层数组+双向链表) 有序,非同步,容量16,允许null</li>
+</ul>
+</li>
+<li>TreeMap：(排序二叉树) 有序,非同步,不允许null</li>
+</ul>
+</li>
+</ul>
+<h3 id="什么是Iterator"><a href="#什么是Iterator" class="headerlink" title="什么是Iterator"></a>什么是Iterator</h3><p>  一些集合类提供了内容遍历的功能，通过java.util.Iterator接口。这些接口允许遍历对象的集合。依次操作每个元素对象。当使用 Iterators时，在获得Iterator的时候包含一个集合快照。通常在遍历一个Iterator的时候不建议修改集合本省。</p>
+<h3 id="Iterator与ListIterator有什么区别？"><a href="#Iterator与ListIterator有什么区别？" class="headerlink" title="Iterator与ListIterator有什么区别？"></a>Iterator与ListIterator有什么区别？</h3><p>  Iterator：只能正向遍历集合，适用于获取移除元素。ListIerator：继承Iterator，可以双向列表的遍历，同样支持元素的修改。</p>
+<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><h3 id="HashMap的工作原理？HashMap的get-方法的工作原理？"><a href="#HashMap的工作原理？HashMap的get-方法的工作原理？" class="headerlink" title="HashMap的工作原理？HashMap的get()方法的工作原理？"></a>HashMap的工作原理？HashMap的get()方法的工作原理？</h3><p>  HashMap是基于hash算法实现的，通过put(key,value)存储对象到HashMap中，也可以通过get(key)从HashMap中获取对象。当我们使用put的时候，首先HashMap会对key的hashCode()的值进行hash计算，根据hash值得到这个元素在数组中的位置，将元素存储在该位置的链表上。当我们使用get的时候，首先HashMap会对key的hashCode()的值进行hash计算，根据hash值得到这个元素在数组中的位置，将元素从该位置上的链表中取出</p>
+<h3 id="当两个对象的hashcode相同会发生什么？"><a href="#当两个对象的hashcode相同会发生什么？" class="headerlink" title="当两个对象的hashcode相同会发生什么？"></a>当两个对象的hashcode相同会发生什么？</h3><p>  hashcode相同，说明两个对象HashMap数组的同一位置上，接着HashMap会遍历链表中的每个元素，通过key的equals方法来判断是否为同一个key，如果是同一个key，则新的value会覆盖旧的value，并且返回旧的value。如果不是同一个key，则存储在该位置上的链表的链头</p>
+<h3 id="如果两个键的hashcode相同，你如何获取值对象？"><a href="#如果两个键的hashcode相同，你如何获取值对象？" class="headerlink" title="如果两个键的hashcode相同，你如何获取值对象？"></a>如果两个键的hashcode相同，你如何获取值对象？</h3><p>  遍历HashMap链表中的每个元素，并对每个key进行hash计算，最后通过get方法获取其对应的值对象</p>
+<h3 id="如果HashMap的大小超过了负载因子-load-factor-定义的容量，怎么办？"><a href="#如果HashMap的大小超过了负载因子-load-factor-定义的容量，怎么办？" class="headerlink" title="如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？"></a>如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？</h3><p>  负载因子默认是0.75，HashMap超过了负载因子定义的容量，也就是说超过了（HashMap的大小*负载因子）这个值，那么HashMap将会创建为原来HashMap大小两倍的数组大小，作为自己新的容量，这个过程叫resize或者rehash</p>
+<h3 id="你了解重新调整HashMap大小存在什么问题吗？"><a href="#你了解重新调整HashMap大小存在什么问题吗？" class="headerlink" title="你了解重新调整HashMap大小存在什么问题吗？"></a>你了解重新调整HashMap大小存在什么问题吗？</h3><p>  当多线程的情况下，可能产生条件竞争。当重新调整HashMap大小的时候，确实存在条件竞争，如果两个线程都发现HashMap需要重新调整大小了，它们会同时试着调整大小。在调整大小的过程中，存储在链表中的元素的次序会反过来，因为移动到新的数组位置的时候，HashMap并不会将元素放在LinkedList的尾部，而是放在头部，这是为了避免尾部遍历(tail traversing)。如果条件竞争发生了，那么就死循环了</p>
+<h3 id="我们可以使用自定义的对象作为键吗？"><a href="#我们可以使用自定义的对象作为键吗？" class="headerlink" title="我们可以使用自定义的对象作为键吗？"></a>我们可以使用自定义的对象作为键吗？</h3><p>  可以，只要它遵守了equals()和hashCode()方法的定义规则，并且当对象插入到Map中之后将不会再改变了。如果这个自定义对象时不可变的，那么它已经满足了作为键的条件，因为当它创建之后就已经不能改变了。</p>
+<h3 id="什么时候使用Hashtable，什么时候使用HashMap"><a href="#什么时候使用Hashtable，什么时候使用HashMap" class="headerlink" title="什么时候使用Hashtable，什么时候使用HashMap"></a>什么时候使用Hashtable，什么时候使用HashMap</h3><p>  基本的不同点是Hashtable同步HashMap不是的，所以无论什么时候有多个线程访问相同实例的可能时，就应该使用Hashtable，反之使用HashMap。非线程安全的数据结构能带来更好的性能。<br>  如果在将来有一种可能—你需要按顺序获得键值对的方案时，HashMap是一个很好的选择，因为有HashMap的一个子类 LinkedHashMap。所以如果你想可预测的按顺序迭代（默认按插入的顺序），你可以很方便用LinkedHashMap替换HashMap。反观要是使用的Hashtable就没那么简单了。同时如果有多个线程访问HashMap，Collections.synchronizedMap（）可以代替，总的来说HashMap更灵活。</p>
+<h3 id="HashMap与HashSet的区别"><a href="#HashMap与HashSet的区别" class="headerlink" title="HashMap与HashSet的区别"></a>HashMap与HashSet的区别</h3><table>
+<thead>
+<tr>
+<th>HashMap</th>
+<th>HashSet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HashMap实现了Map接口</td>
+<td>HashSet实现了Set接口</td>
+</tr>
+<tr>
+<td>HashMap储存键值对</td>
+<td>HashSet仅仅存储对象</td>
+</tr>
+<tr>
+<td>使用put()方法将元素放入map中</td>
+<td>使用add()方法将元素放入set中</td>
+</tr>
+<tr>
+<td>HashMap中使用键对象来计算hashcode值</td>
+<td>HashSet使用成员对象来计算hashcode值</td>
+</tr>
+<tr>
+<td>HashMap比较快，因为是使用唯一的键来获取对象</td>
+<td>HashSet较HashMap来说比较慢</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Hashtable与HashMap的区别"><a href="#Hashtable与HashMap的区别" class="headerlink" title="Hashtable与HashMap的区别"></a>Hashtable与HashMap的区别</h3><table>
+<thead>
+<tr>
+<th>Hashtable</th>
+<th>HashMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>方法是同步的</td>
+<td>方法是非同步的</td>
+</tr>
+<tr>
+<td>基于Dictionary类</td>
+<td>基于AbstractMap，而AbstractMap基于Map接口的实现</td>
+</tr>
+<tr>
+<td>key和value都不允许为null，遇到null，直接返回 NullPointerException</td>
+<td>key和value都允许为null，遇到key为null的时候，调用putForNullKey方法进行处理，而对value没有处理</td>
+</tr>
+<tr>
+<td>hash数组默认大小是11，扩充方式是old*2+1</td>
+<td>hash数组的默认大小是16，而且一定是2的指数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="LinkedHashMap与HashMap的区别"><a href="#LinkedHashMap与HashMap的区别" class="headerlink" title="LinkedHashMap与HashMap的区别"></a>LinkedHashMap与HashMap的区别</h3><table>
+<thead>
+<tr>
+<th>LinkedHashMap</th>
+<th>HashMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有序的，有插入顺序和访问顺序</td>
+<td>无序的</td>
+</tr>
+<tr>
+<td>内部维护着一个运行于所有条目的双向链表</td>
+<td>内部维护着一个单链表</td>
+</tr>
+</tbody>
+</table>
+<h3 id="TreeMap和HashMap的区别"><a href="#TreeMap和HashMap的区别" class="headerlink" title="TreeMap和HashMap的区别"></a>TreeMap和HashMap的区别</h3><table>
+<thead>
+<tr>
+<th>TreeMap</th>
+<th>HashMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有序的</td>
+<td>无序的</td>
+</tr>
+<tr>
+<td>不允许null</td>
+<td>允许null</td>
+</tr>
+<tr>
+<td>实现Comparable接口</td>
+<td>不实现Comparable接口</td>
+</tr>
+<tr>
+<td>底层是红黑二叉树，线程不同步</td>
+<td>底层是哈希表，线程不同步</td>
+</tr>
+</tbody>
+</table>
+<h2 id="TreeSet和HashSet的区别"><a href="#TreeSet和HashSet的区别" class="headerlink" title="TreeSet和HashSet的区别"></a>TreeSet和HashSet的区别</h2><table>
+<thead>
+<tr>
+<th>TreeSet</th>
+<th>HashSet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有序的</td>
+<td>无序的</td>
+</tr>
+<tr>
+<td>不允许null</td>
+<td>允许null</td>
+</tr>
+<tr>
+<td>底层是红黑二叉树，线程不同步</td>
+<td>底层是哈希表，线程不同步</td>
+</tr>
+<tr>
+<td>HashSet是通过HashMap实现的，用的只是Map的key</td>
+<td>TreeSet是通过TreeMap实现的，用的只是Map的key</td>
+</tr>
+</tbody>
+</table>
+<h2 id="LinkedList与ArrayList的区别"><a href="#LinkedList与ArrayList的区别" class="headerlink" title="LinkedList与ArrayList的区别"></a>LinkedList与ArrayList的区别</h2><table>
+<thead>
+<tr>
+<th>LinkedList</th>
+<th>ArrayList</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>底层是双向链表</td>
+<td>底层是可变数组</td>
+</tr>
+<tr>
+<td>不允许随机访问，即查询效率低</td>
+<td>允许随机访问，即查询效率高</td>
+</tr>
+<tr>
+<td>插入和删除效率快</td>
+<td>插入和删除效率低</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>对于随机访问的两个方法，get和set，ArrayList优于LinkedList，因为LinkedList要移动指针</li>
+<li>对于新增和删除两个方法，add和remove，LinedList比较占优势，因为ArrayList要移动数据</li>
+</ul>
+<h2 id="Vector和ArrayList的区别"><a href="#Vector和ArrayList的区别" class="headerlink" title="Vector和ArrayList的区别"></a>Vector和ArrayList的区别</h2><table>
+<thead>
+<tr>
+<th>Vector</th>
+<th>ArrayList</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同步、线程安全的</td>
+<td>异步、线程不安全</td>
+</tr>
+<tr>
+<td>需要额外开销来维持同步锁，性能慢</td>
+<td>性能快</td>
+</tr>
+<tr>
+<td>可以使用Iterator、foreach、Enumeration输出</td>
+<td>只能使用Iterator、foreach输出</td>
+</tr>
+</tbody>
+</table>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="面向对象与面向过程"><a href="#面向对象与面向过程" class="headerlink" title="面向对象与面向过程"></a>面向对象与面向过程</h2><h3 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a>面向过程</h3><ul>
+<li>优点：性能比面向对象高，因为类的调用需要实例化，开销比较大</li>
+<li>缺点：没有面向对象的易维护、易复用、易拓展<h3 id="面向对象-1"><a href="#面向对象-1" class="headerlink" title="面向对象"></a>面向对象</h3></li>
+<li>优点：易维护、易复用、易拓展，由于面向对象有封装、继承、多态的特性，可以设计出低耦合的程序</li>
+<li>缺点：性能比面向过程低</li>
+</ul>
+<h2 id="面向对象的特征"><a href="#面向对象的特征" class="headerlink" title="面向对象的特征"></a>面向对象的特征</h2><ul>
+<li>抽象：把现实生活某一类东西提取出来，成为该类东西的共有特性。抽象一般分为数据抽象和过程抽象，数据抽象是对象的属性，过程抽象是对象的行为特征</li>
+<li>封装：把客观事物进行封装成抽象类，该类的数据和方法只让可信的类操作，对不可信的类隐藏。封装分为属性的封装和方法的封装</li>
+<li>继承：从已有的类中派生出新的类，新的类能吸收已有类的数据属性和行为，并能扩展新的能力</li>
+<li>多态：同一个行为具有多个不同表现形式或形态的能力，多态的前提是类与类之间必须存在关系，要么继承，要么实现</li>
+<li>StringBuilder行改变的时候，都会复用自身对象，相比StringBuffer能获得10%~15%左右的性能提升，但是得承担多线程的不安全的风险</li>
+</ul>
+<h2 id="抽象类abstract和接口interface的区别"><a href="#抽象类abstract和接口interface的区别" class="headerlink" title="抽象类abstract和接口interface的区别"></a>抽象类abstract和接口interface的区别</h2><ul>
+<li>抽象类和接口分别给出了不同的语法定义（包括方法体、成员变量修饰符、方法修饰符）<ul>
+<li>Java接口中声明的变量默认都是final的。抽象类可以包含非final的变量。 </li>
+<li>Java接口中的成员函数默认是public的。抽象类的成员函数可以是private，protected或者是public。</li>
+</ul>
+</li>
+<li>抽象是对类的抽象，接口是对行为的抽象<ul>
+<li>接口中所有的方法隐含的都是抽象的。而抽象类则可以同时包含抽象和非抽象的方法。 </li>
+</ul>
+</li>
+<li>抽象所体现的是继承关系，是一种”is-a”的关系，接口仅仅实现接口定义的契约，是一种”like-a”的关系<ul>
+<li>类可以实现很多个接口，但是只能继承一个抽象类<br>类可以不实现抽象类和接口声明的所有方法，当然，在这种情况下，类也必须得声明成是抽象的。 </li>
+</ul>
+</li>
+<li>抽象是自底向上抽象的，接口是自顶向下设计出来的</li>
+</ul>
+<h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><ul>
+<li>当新对象被创建的时候，构造函数会被调用。</li>
+<li>每一个类都有构造函数。在程序员没有给类提供构造函数的情况下，Java编译器会为这个类创建一个默认的构造函数。 </li>
+<li>Java中构造函数重载和方法重载很相似。可以为一个类创建多个构造函数。每一个构造函数必须有它自己唯一的参数列表。 </li>
+<li>Java不支持像C++中那样的复制构造函数，这个不同点是因为如果你不自己写构造函数的情况下，Java不会创建默认的复制构造函数。</li>
+</ul>
+<h2 id="构造方法是否可被override"><a href="#构造方法是否可被override" class="headerlink" title="构造方法是否可被override"></a>构造方法是否可被override</h2><ul>
+<li>构造方法不能被重写</li>
+<li>构造方法不能被static修饰</li>
+<li>构造方法只能用private、protected、public修饰</li>
+<li>构造方法不能有返回值</li>
+</ul>
+<h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><h2 id="创建线程有几种不同的方式"><a href="#创建线程有几种不同的方式" class="headerlink" title="创建线程有几种不同的方式"></a>创建线程有几种不同的方式</h2><ul>
+<li>继承Thread类</li>
+<li>实现Runnable接口 <ul>
+<li>实现Runnable接口这种方式更受欢迎，因为这不需要继承Thread类。在应用设计中已经继承了别的对象的情况下，这需要多继承（而Java不支持多继承），只能实现接口。同时，线程池也是非常高效的，很容易实现和使用。</li>
+</ul>
+</li>
+<li>应用程序可以使用Executor框架来创建线程池</li>
+<li>实现Callable接口</li>
+</ul>
+<h2 id="如何停止一个线程"><a href="#如何停止一个线程" class="headerlink" title="如何停止一个线程"></a>如何停止一个线程</h2><ul>
+<li>创建一个标识（flag），当线程完成你所需要的工作后，可以将标识设置为退出标识</li>
+<li>使用Thread的stop()方法，这种方法可以强行停止线程，不过已经过期了，因为其在停止的时候可能会导致数据的紊乱</li>
+<li>使用Thread的interrupt()方法和Thread的interrupted()方法，两者配合break退出循环，或者return来停止线程，有点类似标识（flag）</li>
+<li>（推荐）当我们想要停止线程的时候，可以使用try-catch语句，在try-catch语句中抛出异常，强行停止线程进入catch语句，这种方法可以将错误向上抛，使线程停止事件得以传播</li>
+</ul>
+<h2 id="线程的状态转换"><a href="#线程的状态转换" class="headerlink" title="线程的状态转换"></a>线程的状态转换</h2><ul>
+<li>新建(new)：创建了一个线程对象</li>
+<li>可运行(runnable)：线程对象创建后，线程调用start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu的使用权 </li>
+<li>运行(running)：可运行状态(runnable)的线程获得了cpu使用权，执行程序代码 </li>
+<li>阻塞(block)：线程因为某种原因放弃了cpu使用权，即让出了cpu使用权，暂时停止运行，直到线程进入可运行(runnable)状态，才有机会再次获得cpu使用权转到运行(running)状态。阻塞的情况分三种：<ul>
+<li>等待阻塞：运行(running)的线程执行o.wait()方法，JVM会把该线程放入等待队列(waitting queue)中</li>
+<li>同步阻塞：运行(running)的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则JVM会把该线程放入锁池(lock pool)中</li>
+<li>其他阻塞：运行(running)的线程执行Thread.sleep(long ms)或t.join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入可运行(runnable)状态</li>
+</ul>
+</li>
+<li>死亡(dead)：线程run()、main()方法执行结束，或者因异常退出了run()方法，则该线程结束生命周期，且死亡的线程不可再次复生</li>
+</ul>
+<h2 id="什么是线程安全"><a href="#什么是线程安全" class="headerlink" title="什么是线程安全"></a>什么是线程安全</h2><ul>
+<li>在多线程访问同一代码的时候，不会出现不确定的结果</li>
+</ul>
+<h2 id="如何保证线程安全"><a href="#如何保证线程安全" class="headerlink" title="如何保证线程安全"></a>如何保证线程安全</h2><ul>
+<li>对非安全的代码进行加锁操作</li>
+<li>使用线程安全的类</li>
+<li>不要跨线程访问共享变量</li>
+<li>使用final类型作为共享变量</li>
+<li>对共享变量加锁操作</li>
+</ul>
+<h2 id="多线程中的死锁"><a href="#多线程中的死锁" class="headerlink" title="多线程中的死锁"></a>多线程中的死锁</h2><ul>
+<li>死锁：指两个或两个以上的线程在执行的过程中，因抢夺资源而造成互相等待，导致线程无法进行下去</li>
+<li>产生死锁的4个必要条件<ul>
+<li>循环等待：线程中必须有循环等待</li>
+<li>不可剥夺：线程已获得资源，再未使用完成之前，不可被剥夺抢占</li>
+<li>资源独占：线程在某一时间内独占资源</li>
+<li>申请保持：线程因申请资源而阻塞，对已获得的资源保持不放</li>
+</ul>
+</li>
+</ul>
+<h2 id="如何确保N个线程可以访问N个资源同时又不导致死锁？"><a href="#如何确保N个线程可以访问N个资源同时又不导致死锁？" class="headerlink" title="如何确保N个线程可以访问N个资源同时又不导致死锁？"></a>如何确保N个线程可以访问N个资源同时又不导致死锁？</h2><ul>
+<li>使用多线程的时候，一种非常简单的避免死锁的方式就是：指定获取锁的顺序，并强制线程按照指定的顺序获取锁。因此，如果所有的线程都是以同样的顺序加锁和释放锁，就不会出现死锁了。</li>
+</ul>
+<h2 id="什么叫守护线程，用什么方法实现守护线程"><a href="#什么叫守护线程，用什么方法实现守护线程" class="headerlink" title="什么叫守护线程，用什么方法实现守护线程"></a>什么叫守护线程，用什么方法实现守护线程</h2><ul>
+<li>守护线程：指为其他线程的运行提供服务的线程，可通过setDaemon(boolean on)方法设置线程的Daemon模式，true为守护模式，false为用户模式</li>
+</ul>
+<h2 id="多线程的等待唤醒主要方法"><a href="#多线程的等待唤醒主要方法" class="headerlink" title="多线程的等待唤醒主要方法"></a>多线程的等待唤醒主要方法</h2><ul>
+<li>void notify()：唤醒在此对象监视器上等待的单个线程</li>
+<li>void notifyAll()：唤醒在此对象监视器上等待的所有线程</li>
+<li>void wait()：导致当前的线程等待，直到其他线程调用此对象的notify()方法或notifyAll()方法</li>
+<li>void wait(long timeout)：导致当前的线程等待，直到其他线程调用此对象的notify()方法或notifyAll()方法，或者超过指定的时间量</li>
+<li>void wait(long timeout, int nanos)：导致当前的线程等待，直到其他线程调用此对象的notify()方法或notifyAll()方法，或者其他某个线程中断当前线程，或者已超过某个实际时间量</li>
+</ul>
+<h2 id="sleep和wait的区别"><a href="#sleep和wait的区别" class="headerlink" title="sleep和wait的区别"></a>sleep和wait的区别</h2><table>
+<thead>
+<tr>
+<th>sleep()</th>
+<th>wait()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是Thread类的方法</td>
+<td>是Object类中的方法</td>
+</tr>
+<tr>
+<td>调用sleep()，在指定的时间里，暂停程序的执行，让出CPU给其他线程，当超过时间的限制后，又重新恢复到运行状态，在这个过程中，线程不会释放对象锁</td>
+<td>调用wait()时，线程会释放对象锁，进入此对象的等待锁池中，只有此对象调用notify()时，线程进入运行状态</td>
+</tr>
+</tbody>
+</table>
+</div><div class="tags"><a href="/tags/Java/">Java</a></div><div class="post-nav"><a href="/2016/01/16/dagger2/" class="pre">Dagger2</a><a href="/2016/01/05/retrofit2/" class="next">Retrofit2</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'wiolem.disqus.com';
+var disqus_identifier = '2016/01/15/Java基础总结/';
+var disqus_title = 'Java基础知识';
+var disqus_url = 'http://yoursite.com/2016/01/15/Java基础总结/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//wiolem.disqus.com.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-End/">Front End</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Network/">Network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Wiolem/">Wiolem</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/依赖注入/" style="font-size: 15px;">依赖注入</a> <a href="/tags/BFC/" style="font-size: 15px;">BFC</a> <a href="/tags/面向对象/" style="font-size: 15px;">面向对象</a> <a href="/tags/Promise/" style="font-size: 15px;">Promise</a> <a href="/tags/Gulp/" style="font-size: 15px;">Gulp</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/后端/" style="font-size: 15px;">后端</a> <a href="/tags/SASS/" style="font-size: 15px;">SASS</a> <a href="/tags/Dagger2/" style="font-size: 15px;">Dagger2</a> <a href="/tags/第三方开源库/" style="font-size: 15px;">第三方开源库</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/Retrofit2/" style="font-size: 15px;">Retrofit2</a> <a href="/tags/网络请求/" style="font-size: 15px;">网络请求</a> <a href="/tags/兼容/" style="font-size: 15px;">兼容</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/BUG/" style="font-size: 15px;">BUG</a> <a href="/tags/模块化/" style="font-size: 15px;">模块化</a> <a href="/tags/元素居中/" style="font-size: 15px;">元素居中</a> <a href="/tags/移动端/" style="font-size: 15px;">移动端</a> <a href="/tags/云音乐/" style="font-size: 15px;">云音乐</a> <a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/Network/" style="font-size: 15px;">Network</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/25/JavaScript 运行机制之Promise、setTimeout/">JavaScript 运行机制之Promise、setTimeout</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/Git 花式 commit/">Git 花式 commit - enjoy 😜</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/15/Sass/">SASS-CSS扩展语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/15/开发移动端中遇到的单位/">移动端中的遇到的烦人单位</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/我一定会爱上你/">我一定会爱上你</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/前端模块化（AMD CMD）/">前端模块化（AMD和CMD）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/15/Gulp 前端自动化工具/">Gulp 前端自动化工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/10/jQuery-80000/">jQuery-80000</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/ECMAScript-面向对象/">ECMAScript-面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/20/相识-Ajax/">相识-Ajax</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://material.uplabs.com/" title="Material.Uplabs" target="_blank">Material.Uplabs</a><ul></ul><a href="https://dribbble.com/" title="Dribbble" target="_blank">Dribbble</a><ul></ul><a href="https://juejin.im/timeline/" title="JueJin" target="_blank">JueJin</a><ul></ul><a href="http://wiki.jikexueyuan.com/" title="Wiki.JiKeXueYuan" target="_blank">Wiki.JiKeXueYuan</a></div><div class="widget"><div class="widget-title"><i class="fa fa-external-music"> 网易云音乐</i></div></div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=534494933&auto=1&height=66"></iframe></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">Wiolem.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
